@@ -1,6 +1,6 @@
-const porsan = {
-    name: 'arman',
-    age: 21
-};
+import './sass/index.scss';
 
-console.log(porsan.name);
+let name = "arman";
+
+console.log(name);
+
