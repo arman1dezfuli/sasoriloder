@@ -5,7 +5,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "wpDevelopmentMode": "webpack --config webpack.development.config.js",
+    "wpDevelopmentMode": "webpack --watch --config webpack.development.config.js",
     "wpProductionMode": "webpack --config webpack.production.config.js",
     "wpBuild": "webpack --config webpack.development.config.js",
     "wpServe": "./node_modules/.bin/ webpack serve"
@@ -21,6 +21,7 @@
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.4.0",
     "mini-css-extract-plugin": "^2.4.3",
+    "normalize.css": "^8.0.1",
     "sass": "^1.43.3",
     "sass-loader": "^12.2.0",
     "style-loader": "^3.3.1",
