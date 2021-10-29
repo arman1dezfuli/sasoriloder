@@ -1,0 +1,11 @@
+// @use './font';
+@import './font';
+
+
+html {
+    background-color: rgb(7, 10, 20);
+}
+body {
+    color: #fff;
+    font-family: $ffLogo;
+}

@@ -1,40 +1,33 @@
 {
-  "private": true,
   "name": "sasoriloder",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "scripts": {
-    "wpDevelopmentMode": "webpack --watch --config webpack.development.config.js",
-    "wpProductionMode": "webpack --config webpack.production.config.js",
-    "wpBuild": "webpack --config webpack.development.config.js",
-    "wpServe": "./node_modules/.bin/ webpack serve"
-  },
-  "keywords": [],
-  "author": "Arman Dezfuli",
-  "license": "ISC",
-  "devDependencies": {
-    "clean-webpack-plugin": "^4.0.0",
-    "css-loader": "^6.4.0",
-    "eslint": "^8.1.0",
-    "eslint-webpack-plugin": "^3.0.1",
-    "file-loader": "^6.2.0",
-    "html-webpack-plugin": "^5.4.0",
-    "mini-css-extract-plugin": "^2.4.3",
-    "normalize.css": "^8.0.1",
-    "sass": "^1.43.3",
-    "sass-loader": "^12.2.0",
-    "style-loader": "^3.3.1",
-    "terser-webpack-plugin": "^5.2.4",
-    "url-loader": "^4.1.1",
-    "webpack": "^5.59.1",
-    "webpack-cli": "^4.9.1",
-    "webpack-dev-server": "^4.3.1"
-  },
+  "main": "webpack.config.js",
   "dependencies": {
-    "@babel/core": "^7.15.8",
-    "@babel/preset-env": "^7.15.8",
-    "D": "^1.0.0",
-    "babel-loader": "^8.2.3"
-  }
+    "alpinejs": "^3.4.2",
+    "css-loader": "^6.5.0",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.4.3",
+    "sass": "^1.43.4",
+    "sass-loader": "^12.3.0",
+    "style-loader": "^3.3.1",
+    "webpack-cli": "^4.9.1",
+    "webpack": "^5.60.0",
+    "webpack-dev-server": "^4.4.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "dev": "webpack serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/armanDezfuli/sasoriloder.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/armanDezfuli/sasoriloder/issues"
+  },
+  "homepage": "https://github.com/armanDezfuli/sasoriloder#readme"
 }
