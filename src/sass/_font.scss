@@ -2,5 +2,11 @@
     font-family: 'Cinzel';
     src: url('../font/Cinzel-VariableFont_wght.ttf') format('truetype');
 }
+@font-face {
+    font-family: 'yekan';
+    src: url('../font/IRANYekanMobileRegular.ttf') format('truetype');
+}
 
-$ffLogo: Cinzel;
+
+$font-logo-1: Cinzel;
+$font-yekan: 'yekan', sans-serif;

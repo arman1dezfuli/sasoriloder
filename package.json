@@ -18,7 +18,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "dev": "webpack serve"
+    "dev": "webpack serve",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",

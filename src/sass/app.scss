@@ -1,11 +1,42 @@
-// @use './font';
 @import './font';
 
-
-html {
-    background-color: rgb(7, 10, 20);
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(16, 14, 23,); //  #05050f
     color: #fff;
-    font-family: $ffLogo;
+    position: relative;
+    scroll-behavior: smooth;
 }
+body::-webkit-scrollbar {
+    width: 10px;
+}
+body::-webkit-scrollbar-track {
+    border: 6px solid #111;
+}
+body::-webkit-scrollbar-thumb {
+    background: rgb(1, 68, 80);
+    height: 70px;
+    border-radius: 5px;
+    &:hover {
+    background: rgb(0, 47, 56);
+    }
+}
+.btn {
+    background: none;
+    border: none;
+}
+h2 {
+    font-family: yekan;
+}
+
+@import './components/nav.scss';
+@import './components/main.scss';
+@import './components/footer.scss';

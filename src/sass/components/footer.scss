@@ -1,0 +1,71 @@
+@import "../font";
+
+.footer-con {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    border-top: 4px solid #004f49;
+    border-radius: 20px 20px 0 0;
+    margin-top: 5px;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 3;
+    .next-chapter-con {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        button {
+            color: #eee;
+            margin-left: 10px;
+            font-family: $font-yekan;
+            padding: 7px 10px;
+            cursor: pointer;
+            border: 1px solid #004f49;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            &:hover {
+                border: 1px solid #008d81;
+            }
+        }
+    }
+    .developer {
+        p {
+            color: #EAC117;
+            font-size: 0.9rem;
+            font-family: $font-yekan;
+            a {
+                font-family: $font-logo-1;
+                font-weight: 400;
+                text-decoration: none;
+                color: #c4007c;
+                animation: animeDeveloper 5s linear infinite;
+            }
+            @keyframes animeDeveloper {
+                50% {
+                    color: #ff0062;
+                    text-shadow: 0px 0px 1px #ff0077,
+                    0px 0px 1px #ff0062, 
+                    0px 0px 7px #ff0062,
+                    0px 0px 15px #ff0062;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 420px) {
+    .footer-con {
+        padding: 5px;
+        .next-chapter-con {
+            padding: 5px;
+            font-size: 0.5rem;
+        }
+        .developer  {
+            p {
+                font-size: 0.6rem;
+            }
+        }
+    }
+}

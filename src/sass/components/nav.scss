@@ -1,0 +1,226 @@
+@import "../font";
+
+.nav-con {
+    position: fixed;
+    z-index: 3;
+    width: 100%;
+    height: 54px;
+    overflow: hidden;
+    background-color: rgb(16, 14, 23);
+    border-bottom: 4px solid #004f49;
+    border-radius: 0 0 20px 20px;
+    transition: 0.25s ease-in-out;
+
+    .nav {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 10px;
+        .home-con {
+            width: 10%;
+            height: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            button {
+                width: 25px;
+                height: 25px;
+                cursor: pointer;
+                svg {
+                    fill: #ccc;
+                    width: 25px;
+                    height: 25px;
+                }
+                &:hover svg {
+                    fill: #fff;
+                    color: #00ffea;
+                }
+            }
+        }
+        .mid-con {
+            position: relative;
+            width: 60%;
+            height: 37px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 20px;
+            border: 2px solid rgb(112, 112, 112);
+            box-shadow: 0 0 1px 0 #fff,
+            0 0 1px 0 #eee,
+            0 0 1px 0 #ccc,
+            0 0 1px 0 #fff,
+            0 0 1px 0 #fff
+            ;
+            padding: 0 10px;
+            .opstion-con {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                button {
+                    width: 20px;
+                    height: 20px;
+                    cursor: pointer;
+                    svg {
+                        fill: #ccc;
+                        width: 20px;
+                        height: 20px;
+                    }
+                    &:hover svg {
+                        fill: #fff;
+                        color: #00ffea;
+                    }
+                }
+                .opstion {
+                    position: absolute;
+                    top: 50px;
+                    right: 11%;
+                    width: 58%;
+                    height: 100px;
+                    background-color: rgb(0, 12, 9);
+                    border-radius: 10px 10px 20px 20px;
+                    // border-bottom: 4px solid #004f49;
+                    // border-left: 4px solid #004f49;
+                    // border-right: 4px solid #004f49;
+                    border: 4px solid #004f49;
+                    // box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.8);
+                    z-index: 2;
+                }
+            }
+            .chapter-con {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                .chapter {
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    h3 {
+                        color: rgb(220, 220, 220);
+                        font-size: 1rem;
+                        font-family: $font-yekan;
+                    }
+                }
+                button {
+                    width: 20px;
+                    height: 20px;
+                    cursor: pointer;
+                    svg {
+                        fill: #ccc;
+                        width: 20px;
+                        height: 20px;
+                    }
+                    &:hover svg {
+                        fill: #fff;
+                        color: #00ffea;
+                    }
+                }
+            }
+        }
+        .logo-con {
+            width: 30%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+                -khtml-user-select: none;
+                    -moz-user-select: none;
+                        -ms-user-select: none;
+                            user-select: none;
+            h1 {
+                color: #00ffea;
+                font-family: $font-logo-1;
+                font-weight: 400;
+                font-size: 1.8rem;
+                animation: animeLogo 5s linear infinite;
+            }
+            @keyframes animeLogo {
+                50% {
+                    color: #00ffea;
+                    text-shadow: 0px 0px 1px #00fbff, 0px 0px 1px #00fbff, 0px 0px 7px #00fbff, 0px 0px 15px #00fbff;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .nav-con {
+        .nav {
+            .home-con {
+                width: auto;
+            }
+            .mid-con {
+                width: auto;
+                .opstion-con {
+                    margin-left: 40px;
+                }
+                .chapter-con {
+                    button {
+                        margin-right: 40px;
+                        
+                    }
+                }
+            }
+            .logo-con {
+                width: auto;
+                h1 {
+                    font-size: 1.3rem;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .nav-con {
+        .nav {
+            .home-con {
+                button {
+                    width: 20px;
+                    height: 20px;
+                    svg {
+                        width: 20px;
+                        height: 20px;
+                    }
+                }
+            }
+            .mid-con {
+                padding: 0 5px;
+                height: 30px;
+                .opstion-con {
+                    margin-left: 10px;
+                    button {
+                        width: 15px;
+                        height: 15px;
+                        svg {
+                            width: 15px;
+                            height: 15px;
+                        }
+                    }
+                }
+                .chapter-con {
+                    .chapter {
+                        h3 {
+                            font-size: 0.8rem;
+                        }
+                    }
+                    button {
+                        margin-right: 10px;
+                        
+                    }
+                }
+            }
+            .logo-con {
+                h1 {
+                    font-size: 1.2rem;
+                }
+            }
+        }
+    }
+}
