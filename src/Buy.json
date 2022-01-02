@@ -1,0 +1,14 @@
+[
+    {
+        "userName" : "arman",
+        "chapterIds" : [1,2,3]
+    },
+    {
+        "isSuccesed" : true,
+        "Errors" : [
+            "Error 1",
+            "Error 2",
+            "Error 3"
+        ]
+    }
+]

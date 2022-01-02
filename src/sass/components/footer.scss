@@ -1,68 +1,64 @@
 @import "../font";
 
 .footer-con {
-    position: absolute;
-    bottom: 0;
     width: 100%;
-    height: 50px;
-    border-top: 4px solid #004f49;
+    background-color: #000;
     border-radius: 20px 20px 0 0;
     margin-top: 5px;
-    padding: 5px 10px;
-    display: flex;
-    justify-content: space-between;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: auto auto;
     align-items: center;
-    z-index: 3;
-    .next-chapter-con {
+    justify-content: space-evenly;
+    .developer {
         display: flex;
+        flex-direction: column;
         justify-content: center;
-        align-items: center;
-        button {
-            color: #eee;
-            margin-left: 10px;
+        // align-items: center;
+        p {
+            color: #a8dadc;
+            font-size: .8rem;
             font-family: $font-yekan;
-            padding: 7px 10px;
-            cursor: pointer;
-            border: 1px solid #004f49;
-            border-radius: 10px;
-            font-size: 0.9rem;
-            &:hover {
-                border: 1px solid #008d81;
+            margin: 5px 0;
+            a {
+                text-decoration: none;
+                color: #eee;
+                &:hover {
+                    color: #fff;
+                    text-shadow: 0 0 1px #fff;
+                }
             }
         }
     }
-    .developer {
-        p {
-            color: #EAC117;
-            font-size: 0.9rem;
-            font-family: $font-yekan;
-            a {
-                font-family: $font-logo-1;
-                font-weight: 400;
-                text-decoration: none;
-                color: #c4007c;
-                animation: animeDeveloper 5s linear infinite;
+    .version {
+        color: #444;
+        font-size: 2rem;
+        pointer-events: none;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+}
+@media screen and (max-width: 500px) {
+    .footer-con {
+        .developer {
+            p {
+                font-size: 0.5rem;
+                margin: 3px 0;
             }
-            @keyframes animeDeveloper {
-                50% {
-                    color: #ff0062;
-                    text-shadow: 0px 0px 1px #ff0077,
-                    0px 0px 1px #ff0062, 
-                    0px 0px 7px #ff0062,
-                    0px 0px 15px #ff0062;
-                }
-            }
+        }
+        .version {
+            font-size: 1rem;
         }
     }
 }
 @media screen and (max-width: 420px) {
     .footer-con {
         padding: 5px;
-        .next-chapter-con {
-            padding: 5px;
-            font-size: 0.5rem;
-        }
-        .developer  {
+        .developer {
             p {
                 font-size: 0.6rem;
             }

@@ -1,5 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 @import './font';
-
 * {
     padding: 0;
     margin: 0;
@@ -9,34 +9,46 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    background-color: rgb(16, 14, 23,); //  #05050f
+    background-color: #111; //  #05050f rgb(16, 14, 23,)
     color: #fff;
     position: relative;
     scroll-behavior: smooth;
+    font-family: sans-serif;
+}
+.classBodyHidden {
+    overflow: hidden
 }
 body::-webkit-scrollbar {
     width: 10px;
 }
 body::-webkit-scrollbar-track {
-    border: 6px solid #111;
+    border: 6px solid #000;
 }
 body::-webkit-scrollbar-thumb {
-    background: rgb(1, 68, 80);
+    background: #333;
     height: 70px;
     border-radius: 5px;
     &:hover {
-    background: rgb(0, 47, 56);
+    background: #222;
     }
 }
 .btn {
     background: none;
     border: none;
+    color: #eee;
 }
+
 h2 {
     font-family: yekan;
 }
 
 @import './components/nav.scss';
+@import './components/music.scss';
 @import './components/main.scss';
 @import './components/footer.scss';
+
+.block{
+    display: block !important;
+}
