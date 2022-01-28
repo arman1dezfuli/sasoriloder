@@ -1,6 +1,6 @@
 .main-con {
-  position: relative;
   width: 100%;
+  position: relative;
   margin-top: 54px;
   display: flex;
   flex-direction: column;
@@ -13,7 +13,7 @@
   -ms-user-select: none;
   user-select: none;
   .main {
-    // width: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -30,8 +30,6 @@
     // }
   }
   .img {
-    width: 600px;
-    width: 100%;
     pointer-events: none;
     -webkit-touch-callout: none;
     -webkit-user-select: none;

@@ -1,173 +1,136 @@
+const selected = document.querySelector(".selected");
+const optionsList = document.querySelectorAll(".option");
+const selectBox = document.querySelector(".select-box");
+optionsList.forEach((o) => {
+    o.querySelector("label").addEventListener("click", (elm) => {
+        selected.innerHTML = o.querySelector("label").innerHTML;
+        selectBox.style.height = "0px";
+    });
+});
 
-// API 
-(() => {
-    (() => {
-        const selected = document.querySelector(".selected")
-        const optionsContainer = document.querySelector(".options-container")
-        const optionsList = document.querySelectorAll(".option");
-        const selectBox = document.querySelector(".select-box")
-        optionsList.forEach(o => {
-            o.addEventListener("click", elm => {
-                selected.innerHTML = o.querySelector("label").innerHTML;
-                selectBox.style.height = "0px"
-                let el = Number(elm.target.id)
-
-            });
-        });
-    })();
-})();
-// end
-// Api load image
-// (() => {
-//     const imageContiner = document.querySelector(".main");
-//     const slideValue = document.querySelector(".topspanU");
-
-//     // inputSlider.oninput = (()=>{
-//     //   let value = inputSlider.value;
-//     //   slideValue.textContent = value;
-//     //   slideValue.style.left = (value/2) + "%";
-//     //   slideValue.classList.add("show");
-//     // });
-//     // inputSlider.onblur = (()=>{
-//     //     slideValue.classList.remove("show");
-//     // });
-
-//     // const inputSlider = document.querySelector("input");
-//     // inputSlider.addEventListener("change" , e => {
-
-//     //    let vel = Number(e.target.value)
-
-//     //    return vel
-//     // });
-
-//     // console.log(vel);
-//     // let vel;
-//     // inputSlider.addEventListener("change", e => {
-//     //     vel = Number(e.target.value);
-//     // });
-
-
-//     function createImage(url) {
-//         let imageTag = document.createElement('img');
-//         imageTag.classList.add("img");
-//         imageTag.setAttribute("src", url);
-//         imageTag.setAttribute("loading", "lazy"); // lazy
-//         imageTag.setAttribute("alt", "..");
-//         imageContiner.appendChild(imageTag);
-//     }
-
-//     // document.addEventListener("DOMContentLoaded", () => {
-//     //     let img = document.querySelector(".main");
-//     //     imageContiner.style.width = `${vel}%`;
-//     //     console.log(img);
-//     // });
-
-//     fetch("img.json")
-//         .then(response => {
-//             if (response.ok) {
-//                 return response.json();
-//             }
-//             else {
-//                 throw Error(response.status);
-//             }
-//         })
-//         .then(response => {
-//             let defaultChapterNamber = response[0].defaultChapterNamber;
-//             let userChapters = response[0].userChapters[defaultChapterNamber];
-//             let allChaptersLength = response[1].allChapters.length;
-//             let userChaptersLength = response[0].userChapters.length;
-//             const selected = document.querySelector(".selected")
-//             selected.innerHTML = `چپتر ${defaultChapterNamber}`;
-//             if (defaultChapterNamber >= allChaptersLength) {
-//                 alert("خطا")
-//             } else if (defaultChapterNamber < allChaptersLength) {
-//                 if (userChaptersLength <= allChaptersLength) {
-//                     if (userChapters.chapterId === response[1].allChapters[defaultChapterNamber].chapterId) {
-//                         response[1].allChapters[defaultChapterNamber].images.forEach(url => {
-//                             createImage(url);
-//                         });
-//                     }
-//                 } else if (defaultChapterNamber <= allChaptersLength) {
-//                     console.log("222222222222222222222222222222222222222222222222222222222");
-//                 }
-//             }
-//         })
-//         .catch(error => {
-//             console.log(error.message);
-//         })
-// })();
-
-
-// `<div class="option">
-// <input type="radio" class="radio" id="0" name="category" />
-// <span class="icon">
-//     <svg width="24px" height="24px" viewBox="0 0 24 24"
-//         xmlns="http://www.w3.org/2000/svg">
-//         <path
-//             d="M20,15.2928932 L20,5.5 C20,4.67157288 19.3284271,4 18.5,4 L5.5,4 C4.67157288,4 4,4.67157288 4,5.5 L4,12.2928932 L7.14644661,9.14644661 C7.34170876,8.95118446 7.65829124,8.95118446 7.85355339,9.14644661 L13.5,14.7928932 L16.1464466,12.1464466 C16.3417088,11.9511845 16.6582912,11.9511845 16.8535534,12.1464466 L20,15.2928932 Z M20,16.7071068 L16.5,13.2071068 L13.8535534,15.8535534 C13.6582912,16.0488155 13.3417088,16.0488155 13.1464466,15.8535534 L7.5,10.2071068 L4,13.7071068 L4,18.5 C4,19.3284271 4.67157288,20 5.5,20 L18.5,20 C19.3284271,20 20,19.3284271 20,18.5 L20,16.7071068 Z M3,5.5 C3,4.11928813 4.11928813,3 5.5,3 L18.5,3 C19.8807119,3 21,4.11928813 21,5.5 L21,18.5 C21,19.8807119 19.8807119,21 18.5,21 L5.5,21 C4.11928813,21 3,19.8807119 3,18.5 L3,5.5 Z M15,6 L17,6 C17.5522847,6 18,6.44771525 18,7 L18,9 C18,9.55228475 17.5522847,10 17,10 L15,10 C14.4477153,10 14,9.55228475 14,9 L14,7 C14,6.44771525 14.4477153,6 15,6 Z M15,7 L15,9 L17,9 L17,7 L15,7 Z" />
-//     </svg>
-
-// </span>
-// <label for="0">چپتر 0</label>
-// <span>خریداری شده</span>
-// </div>`
-
-// (() => {
-//     fetch('https://aosasori.com/api/Loader/3190/Arman') //  your api
-//         .then(res => {
-//             if(res.ok) {
-//                 return res.json()
-//             }
-//             else {
-//                 throw Error(res.status)
-//             }
-//         })
-//         .then(data => {
-//             console.log(data);
-//         })
-//         .catch(err => {
-//             console.log(err);
-//         })
-
-// })();
-
-// let chpterTagHtml = "";
-
-// data.allChapters.forEach((chpters)=> {
-//     console.log(chpters);
-//     chpterTagHtml +=
-//         `<div class="option">
-//             <input type="radio" class="radio" id="${chpters.chapterNumber}" name="category" />
-//             <span class="icon">
-//                 <svg width="24px" height="24px" viewBox="0 0 24 24"
-//                     xmlns="http://www.w3.org/2000/svg">
-//                     <path
-//                         d="M20,15.2928932 L20,5.5 C20,4.67157288 19.3284271,4 18.5,4 L5.5,4 C4.67157288,4 4,4.67157288 4,5.5 L4,12.2928932 L7.14644661,9.14644661 C7.34170876,8.95118446 7.65829124,8.95118446 7.85355339,9.14644661 L13.5,14.7928932 L16.1464466,12.1464466 C16.3417088,11.9511845 16.6582912,11.9511845 16.8535534,12.1464466 L20,15.2928932 Z M20,16.7071068 L16.5,13.2071068 L13.8535534,15.8535534 C13.6582912,16.0488155 13.3417088,16.0488155 13.1464466,15.8535534 L7.5,10.2071068 L4,13.7071068 L4,18.5 C4,19.3284271 4.67157288,20 5.5,20 L18.5,20 C19.3284271,20 20,19.3284271 20,18.5 L20,16.7071068 Z M3,5.5 C3,4.11928813 4.11928813,3 5.5,3 L18.5,3 C19.8807119,3 21,4.11928813 21,5.5 L21,18.5 C21,19.8807119 19.8807119,21 18.5,21 L5.5,21 C4.11928813,21 3,19.8807119 3,18.5 L3,5.5 Z M15,6 L17,6 C17.5522847,6 18,6.44771525 18,7 L18,9 C18,9.55228475 17.5522847,10 17,10 L15,10 C14.4477153,10 14,9.55228475 14,9 L14,7 C14,6.44771525 14.4477153,6 15,6 Z M15,7 L15,9 L17,9 L17,7 L15,7 Z" />
-//                 </svg>
-//             </span>
-//             <label for="0">چپتر ${chpters.chapterNumber}</label>
-//             <span>خریداری شده</span>
-//         </div>`;
-//     options_container.innerHTML = chpterTagHtml;
-// });
-const options_container = document.querySelector(".options-container");
-
-const chpterSelection = async () => {
+async function callDefaultChapterNumber() {
+    // For Chapter Click User In page
     try {
-        const res = await fetch('https://aosasori.com/api/Loader/3190/Arman');
+        const res = await fetch("https://aosasori.com/api/Loader/37/Arman"); // این ادرس ای پی ای باید دیفالت چپتر مورد نظر باشه
+        if (res.ok) {
+            const data = await res.json();
+            data.images.forEach((url) => createImageTag(url));
+            const default_chapter_number = data.defaultChapterNumber + " " + "چپتر";
+            selected.innerHTML = default_chapter_number;
+        } else {
+            throw Error(res.status);
+        }
+    } catch (error) {
+        console.log(error);
+    }
+}
+callDefaultChapterNumber();
+
+function getUserChapterNumber() {
+    // For User Change Chapter
+    const user_chapter = document.querySelectorAll(".options-container .option label");
+    const callUserChapter = async (e) => {
+        let chapter_id = parseInt(e.target.parentElement.querySelector("input").getAttribute("id"));
+        const res = await fetch("https://aosasori.com/api/Loader/1068/Arman");
+        const data = await res.json();
+        const all_chapters = data.allChapters;
+        // const user_chapters = data.userChapters;
+        const chapter_find = all_chapters.find((chapter) => chapter.chapterNumber === chapter_id);
+        const chapter_id_second = chapter_find.chapterId;
+        const res_second = await fetch(`https://aosasori.com/api/Loader/${chapter_id_second}/Arman`);
+        const data_second = await res_second.json();
+        // const chapter_find_in_user_chapter = user_chapters.find((chapter) => chapter.chapterNumber);
+        removeImg();
+        data_second.images.forEach((url) => createImageTag(url));
+
+        // if(chapter_id === chapter_find_in_user_chapter.chapterNumber) {
+        // }
+        // else {
+        //     alert("این چپتر باید بخری")
+        // }
+    };
+    user_chapter.forEach((chapterid) => {
+        chapterid.addEventListener("click", callUserChapter);
+    });
+}
+getUserChapterNumber();
+// style="width: 1000px; height: auto;"
+function createImageTag(url) {
+    const imageContiner = document.querySelector(".main");
+    let imageTag = document.createElement("img");
+    imageTag.setAttribute("src", "https://dl.aosasori.com/ChapterParts/" + url);
+    imageTag.classList.add("img");
+    imageTag.setAttribute("loading", "lazy");
+    imageTag.setAttribute("style", "width: 700px;");
+    imageContiner.appendChild(imageTag);
+}
+
+function removeImg() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+    const imageContiner = document.querySelector(".main");
+    img_class = imageContiner.querySelectorAll("img");
+    img_class.forEach((img_class) => {
+        imageContiner.removeChild(img_class);
+    });
+}
+
+const btn_next_chapter = document.querySelector(".nextChpter").querySelector(".btn");
+btn_next_chapter.addEventListener("click", nextChpter);
+
+async function nextChpter() {
+    try {
+        const res = await fetch("https://aosasori.com/api/Loader/3087/AMIRHHH");
         if (res.ok) {
             const data = await res.json();
 
+            let default_chapter_number_next = (data.defaultChapterNumber += 1);
+
+            const all_chapters = data.allChapters;
+
+            const user_chapter = data.userChapters;
+
+            const find_chapter = all_chapters.find((item) => item.chapterNumber === default_chapter_number_next);
+
+            const find_chapter_id_in_all_chapters = find_chapter.chapterId;
+
+            const find_chapter_in_user_chapters = user_chapter.find((itme) => itme.chapterId === find_chapter_id_in_all_chapters);
+
+            const find_chapter_id_in_user_chapters = find_chapter_in_user_chapters.chapterId;
+
+            // const res_second = await fetch(`https://aosasori.com/api/Loader/${find_chapter_id_in_user_chapters}/AMIRHHH`);
+            // const data_second = await res_second.json();
+            
+            console.log(default_chapter_number_next);
 
 
+        } else {
+            throw Error(res.status);
         }
-        else {
-            throw Error(res.status)
-        }
-    }
-    catch (err) {
+    } catch (err) {
         console.log(err);
     }
+
+    // let default_chapter_number = data.defaultChapterNumber;
+    // default_chapter_number += 1;
+    // const user_chapters = data.userChapters;
+    // console.log(user_chapters);
+
+    // user_chapters.forEach((chapter_number) => {
+    //     if (chapter_number === default_chapter_number) {
+    //         const chapter_find_in_user_chapter = chapter_number.find((chapter) => chapter.chapterNumber);
+    //         console.log(chapter_find_in_user_chapter);
+    //     }
+    // });
+
+    // console.log(user_chapters);    // const res_second = await fetch(`https://aosasori.com/api/Loader/${default_chapter_number}/Arman`);
+    // const data_second = await res_second.json();
+    // removeImg();
+    // data_second.images.forEach(url => createImageTag(url));
 }
 
-chpterSelection();
+// function buy() {
+//     const buy_pop_up_box = document.createElement("div");
+
+// }
+// buy();
