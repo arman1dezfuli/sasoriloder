@@ -8,53 +8,6 @@ optionsList.forEach((o) => {
     });
 });
 
-async function callDefaultChapterNumber() {
-    // For Chapter Click User In page
-    try {
-        const res = await fetch("https://aosasori.com/api/Loader/37/Arman"); // این ادرس ای پی ای باید دیفالت چپتر مورد نظر باشه
-        if (res.ok) {
-            const data = await res.json();
-            data.images.forEach((url) => createImageTag(url));
-            const default_chapter_number = data.defaultChapterNumber + " " + "چپتر";
-            selected.innerHTML = default_chapter_number;
-        } else {
-            throw Error(res.status);
-        }
-    } catch (error) {
-        console.log(error);
-    }
-}
-callDefaultChapterNumber();
-
-function getUserChapterNumber() {
-    // For User Change Chapter
-    const user_chapter = document.querySelectorAll(".options-container .option label");
-    const callUserChapter = async (e) => {
-        let chapter_id = parseInt(e.target.parentElement.querySelector("input").getAttribute("id"));
-        const res = await fetch("https://aosasori.com/api/Loader/1068/Arman");
-        const data = await res.json();
-        const all_chapters = data.allChapters;
-        // const user_chapters = data.userChapters;
-        const chapter_find = all_chapters.find((chapter) => chapter.chapterNumber === chapter_id);
-        const chapter_id_second = chapter_find.chapterId;
-        const res_second = await fetch(`https://aosasori.com/api/Loader/${chapter_id_second}/Arman`);
-        const data_second = await res_second.json();
-        // const chapter_find_in_user_chapter = user_chapters.find((chapter) => chapter.chapterNumber);
-        removeImg();
-        data_second.images.forEach((url) => createImageTag(url));
-
-        // if(chapter_id === chapter_find_in_user_chapter.chapterNumber) {
-        // }
-        // else {
-        //     alert("این چپتر باید بخری")
-        // }
-    };
-    user_chapter.forEach((chapterid) => {
-        chapterid.addEventListener("click", callUserChapter);
-    });
-}
-getUserChapterNumber();
-// style="width: 1000px; height: auto;"
 function createImageTag(url) {
     const imageContiner = document.querySelector(".main");
     let imageTag = document.createElement("img");
@@ -75,62 +28,123 @@ function removeImg() {
     });
 }
 
-const btn_next_chapter = document.querySelector(".nextChpter").querySelector(".btn");
-btn_next_chapter.addEventListener("click", nextChpter);
+// shit trick ! 😂
 
-async function nextChpter() {
+var public_api_id = 3228; // ای دی اولیه که از سمت بک امده این جا میزنی
+
+var api_left = "https://aosasori.com/api/Loader/"; // این باید از بک بیاد
+
+var api_right = "/Arman"; // این باید از بک بیاد
+
+// end
+
+// function defaultChapterNumberApi(api) {
+
+async function callDefaultChapterNumber() {
+    // شروع همه چی 😀
     try {
-        const res = await fetch("https://aosasori.com/api/Loader/3087/AMIRHHH");
+        const res = await fetch(api_left + public_api_id + api_right);
         if (res.ok) {
             const data = await res.json();
+            data.images.forEach((url) => createImageTag(url));
+            const default_chapter_number = data.defaultChapterNumber + " " + "چپتر";
+            selected.innerHTML = default_chapter_number;
+        } else {
+            throw Error(res.status);
+        }
+    } catch (error) {
+        console.log(error);
+    }
+}
+callDefaultChapterNumber();
 
-            let default_chapter_number_next = (data.defaultChapterNumber += 1);
+function getUserChapterNumber() {
+    // وقتی کاربر از طریق منو چپتر دستی عوض کرد 😃
+    // For User Change Chapter
+    const user_chapter = document.querySelectorAll(".options-container .option label");
+    const callUserChapter = async (e) => {
+        let chapter_id = parseInt(e.target.parentElement.querySelector("input").getAttribute("id"));
+        const res = await fetch(api_left + public_api_id + api_right);
+        const data = await res.json();
+        const all_chapters = data.allChapters;
+        const chapter_find = all_chapters.find((chapter) => chapter.chapterNumber === chapter_id);
+        const chapter_id_second = chapter_find.chapterId;
 
-            const all_chapters = data.allChapters;
+        // const res_second = await fetch(publicApiUrl(chapter_id_second));
+        const res_second = await fetch(api_left + chapter_id_second + api_right);
 
-            const user_chapter = data.userChapters;
+        const data_second = await res_second.json();
+        // const chapter_find_in_user_chapter = user_chapters.find((chapter) => chapter.chapterNumber);
+        public_api_id = chapter_id_second;
+        removeImg();
+        data_second.images.forEach((url) => createImageTag(url));
+        // if(chapter_id === chapter_find_in_user_chapter.chapterNumber) {
+        // }
+        // else {
+        //     alert("این چپتر باید بخری")
+        // }
+    };
+    user_chapter.forEach((chapterid) => {
+        chapterid.addEventListener("click", callUserChapter);
+    });
+}
 
-            const find_chapter = all_chapters.find((item) => item.chapterNumber === default_chapter_number_next);
+getUserChapterNumber();
 
-            const find_chapter_id_in_all_chapters = find_chapter.chapterId;
+async function nextDefaultChpterHandler() {
+    const res = await fetch(api_left + public_api_id + api_right);
+    const data = await res.json();
+    const defaultChapterNumber = (data.defaultChapterNumber += 1);
+    const all_chapters = data.allChapters;
+    const chapter_find = all_chapters.find((chapter) => chapter.chapterNumber === defaultChapterNumber);
+    const chapter_id_second = chapter_find.chapterId;
+    public_api_id = chapter_id_second;
+    nextChpterRenderHandler();
+}
 
-            const find_chapter_in_user_chapters = user_chapter.find((itme) => itme.chapterId === find_chapter_id_in_all_chapters);
-
-            const find_chapter_id_in_user_chapters = find_chapter_in_user_chapters.chapterId;
-
-            // const res_second = await fetch(`https://aosasori.com/api/Loader/${find_chapter_id_in_user_chapters}/AMIRHHH`);
-            // const data_second = await res_second.json();
-            
-            console.log(default_chapter_number_next);
-
-
+async function nextChpterRenderHandler() {
+    try {
+        const res = await fetch(api_left + public_api_id + api_right);
+        if (res.ok) {
+            const data = await res.json();
+            const default_chapter_number = data.defaultChapterNumber + " " + "چپتر";
+            selected.innerHTML = default_chapter_number;
+            removeImg();
+            data.images.forEach((url) => createImageTag(url));
         } else {
             throw Error(res.status);
         }
     } catch (err) {
         console.log(err);
     }
-
-    // let default_chapter_number = data.defaultChapterNumber;
-    // default_chapter_number += 1;
-    // const user_chapters = data.userChapters;
-    // console.log(user_chapters);
-
-    // user_chapters.forEach((chapter_number) => {
-    //     if (chapter_number === default_chapter_number) {
-    //         const chapter_find_in_user_chapter = chapter_number.find((chapter) => chapter.chapterNumber);
-    //         console.log(chapter_find_in_user_chapter);
-    //     }
-    // });
-
-    // console.log(user_chapters);    // const res_second = await fetch(`https://aosasori.com/api/Loader/${default_chapter_number}/Arman`);
-    // const data_second = await res_second.json();
-    // removeImg();
-    // data_second.images.forEach(url => createImageTag(url));
 }
 
-// function buy() {
-//     const buy_pop_up_box = document.createElement("div");
+const btn_next_chapter = document.querySelector(".nextChpter").querySelector(".btn");
 
-// }
-// buy();
+btn_next_chapter.addEventListener("click", nextDefaultChpterHandler);
+
+
+async function bay() {
+    const res = await fetch("https://aosasori.com/api/loader/GetChapter/37");
+    const data = await res.json();
+    
+    console.log(data);
+}
+
+bay()
+
+// btn_next_chapter.addEventListener("click", rr);
+
+// let default_chapter_number_next = (data.defaultChapterNumber += 1);
+
+//             const all_chapters = data.allChapters;
+
+//             const user_chapter = data.userChapters;
+
+//             const find_chapter = all_chapters.find((item) => item.chapterNumber === default_chapter_number_next);
+
+//             const find_chapter_id_in_all_chapters = find_chapter.chapterId;
+
+//             const find_chapter_in_user_chapters = user_chapter.find((itme) => itme.chapterId === find_chapter_id_in_all_chapters);
+
+//             const find_chapter_id_in_user_chapters = find_chapter_in_user_chapters.chapterId;
