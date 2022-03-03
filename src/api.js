@@ -28,20 +28,19 @@ function removeImg() {
     });
 }
 
-// shit trick ! 😂
+// shit trick ! 
 
-var public_api_id = 3228; // ای دی اولیه که از سمت بک امده این جا میزنی
+var public_api_id = 3080; // ای دی اولیه که از سمت بک امده این جا میزنی
 
 var api_left = "https://aosasori.com/api/Loader/"; // این باید از بک بیاد
 
-var api_right = "/Arman"; // این باید از بک بیاد
+var api_right = "/Player"; // این باید از بک بیاد  Player
 
 // end
 
-// function defaultChapterNumberApi(api) {
 
 async function callDefaultChapterNumber() {
-    // شروع همه چی 😀
+    // شروع همه چی 
     try {
         const res = await fetch(api_left + public_api_id + api_right);
         if (res.ok) {
@@ -59,7 +58,7 @@ async function callDefaultChapterNumber() {
 callDefaultChapterNumber();
 
 function getUserChapterNumber() {
-    // وقتی کاربر از طریق منو چپتر دستی عوض کرد 😃
+    // وقتی کاربر از طریق منو چپتر دستی عوض کرد 
     // For User Change Chapter
     const user_chapter = document.querySelectorAll(".options-container .option label");
     const callUserChapter = async (e) => {
@@ -122,29 +121,3 @@ async function nextChpterRenderHandler() {
 const btn_next_chapter = document.querySelector(".nextChpter").querySelector(".btn");
 
 btn_next_chapter.addEventListener("click", nextDefaultChpterHandler);
-
-
-async function bay() {
-    const res = await fetch("https://aosasori.com/api/loader/GetChapter/37");
-    const data = await res.json();
-    
-    console.log(data);
-}
-
-bay()
-
-// btn_next_chapter.addEventListener("click", rr);
-
-// let default_chapter_number_next = (data.defaultChapterNumber += 1);
-
-//             const all_chapters = data.allChapters;
-
-//             const user_chapter = data.userChapters;
-
-//             const find_chapter = all_chapters.find((item) => item.chapterNumber === default_chapter_number_next);
-
-//             const find_chapter_id_in_all_chapters = find_chapter.chapterId;
-
-//             const find_chapter_in_user_chapters = user_chapter.find((itme) => itme.chapterId === find_chapter_id_in_all_chapters);
-
-//             const find_chapter_id_in_user_chapters = find_chapter_in_user_chapters.chapterId;

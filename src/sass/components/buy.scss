@@ -1,0 +1,85 @@
+@import "../font";
+
+.buy {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translate(-50%, -50%);
+    z-index: 100100;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    font-family: "yekan", sans-serif;
+    .buy__con {
+        width: 350px;
+        background-color: #111;
+        border-radius: 5px;
+
+        box-shadow: 0px 0px 20px 2px rgba(0, 0, 0, 0.2);
+
+        .buy__top {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 5px;
+            background: #333; // 8c2e31
+            border-radius: 5px 5px 0 0;
+            span {
+                margin-top: 4px;
+            }
+
+            h6 {
+                margin-right: 10px;
+                font-size: 15px;
+                color: #fff;
+                font-weight: 400;
+                border-radius: 5px 5px 0 0;
+
+                span:nth-child(1) {
+                    color: #ffcb69;
+                }
+                span:nth-child(2) {
+                    color: #05b52e;
+                }
+            }
+        }
+        .buy__bottom {
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            padding: 30px 0;
+            button {
+                background: none;
+                border: none;
+                color: #fff;
+                font-family: "yekan", sans-serif;
+                width: 100px;
+                height: 30px;
+                border-radius: 4px;
+                font-weight: 500;
+                font-size: 16px;
+                cursor: pointer;
+            }
+            .no {
+                background-color: #c21b2c;
+                &:hover {
+                    background-color: #dd0117;
+                }
+            }
+            .yes {
+                background-color: #0e912c;
+                &:hover {
+                    background-color: #05b52e;
+                }
+            }
+        }
+    }
+}
+
+.noScroll {
+    overflow: hidden;
+}
